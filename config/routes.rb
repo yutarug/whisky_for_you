@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   	    passwords:     'admin/passwords',
         registrations: 'admin/registrations'
   }
+  
   namespace :admin do
     resources :bottles, only: [:new, :index, :create, :edit, :update, :destroy]
   end
