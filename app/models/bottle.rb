@@ -1,5 +1,6 @@
 class Bottle < ApplicationRecord
-    belongs_to :area
+    extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to_active_hash :area
     has_many :comments, dependent: :destroy
     has_many :tag_maps, dependent: :destroy
     attachment :image

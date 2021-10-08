@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  devise_for :admins,path: "admin", controllers: {
+  	    sessions: "admin/sessions",
+  	    passwords:     'admin/passwords',
+        registrations: 'admin/registrations'
+  }
   namespace :admin do
-    devise_for :admins, skip: [:registrations]
     resources :bottles, only: [:new, :index, :create, :edit, :update, :destroy]
   end
 
