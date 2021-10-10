@@ -4,8 +4,9 @@ class Admin::BottlesController < ApplicationController
     end
 
     def new
-    
-
+        @areas=Area.all
+        @new_bottle=Bottle.new
+        @new_tag=@new_bottle.tags.new
     end
 
     def create
