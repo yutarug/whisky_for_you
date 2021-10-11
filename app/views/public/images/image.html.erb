@@ -1,0 +1,6 @@
+<p>ラベル写真からウイスキーを検索します。</p>
+#フォームを作って、モデルに無関係な写真を送る。
+<%= form_with url: images_path,multipart: true,local: true do %>
+    <%= file_field :fileupload, :file %>
+    <%= submit_tag "Send file" %>
+<% end %>

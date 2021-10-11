@@ -16,7 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+/crafty-centaur-327921-7d5004602e5b.json
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep

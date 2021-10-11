@@ -24,14 +24,9 @@ ActiveRecord::Schema.define(version: 2021_10_09_021128) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "areas", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "bottles", force: :cascade do |t|
     t.integer "area_id", null: false
-    t.string "name", null: false
+    t.string "bottle_name", null: false
     t.integer "age"
     t.string "feature"
     t.string "image_id"
@@ -50,14 +45,14 @@ ActiveRecord::Schema.define(version: 2021_10_09_021128) do
   end
 
   create_table "tagmaps", force: :cascade do |t|
-    t.string "bottle_id", null: false
-    t.string "tag_id", null: false
+    t.integer "bottle_id", null: false
+    t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "tag_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
