@@ -1,1 +1,11 @@
-<p>パブリックサーチズサーチ</p>
+<p>検索</p>
+<p>ボトル名検索(日本語)</p>
+<%= form_with url: searches_path, method: :get,local:true do |f| %>
+    <%= f.text_field :japanese_bottle_name %>
+    <%= f.submit %>
+<% end %>
+<h2>タグ検索</h2>
+<% @search_tag.each do |search_tag|%>
+
+    <%= link_to search_tag.tag_name,searches_path(tag_id: "#{search_tag.id}")%>
+<% end %>

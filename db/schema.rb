@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_021128) do
+ActiveRecord::Schema.define(version: 2021_10_11_083811) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_10_09_021128) do
     t.string "feature"
     t.string "image_id"
     t.text "introduction"
+    t.string "japanese_bottle_name"
+    t.integer "price_level", limit: 2, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "classification"
@@ -53,6 +55,20 @@ ActiveRecord::Schema.define(version: 2021_10_09_021128) do
 
   create_table "tags", force: :cascade do |t|
     t.string "tag_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tastes", force: :cascade do |t|
+    t.integer "bottle_id"
+    t.integer "peaty"
+    t.integer "fruity"
+    t.integer "floral"
+    t.integer "feinty"
+    t.integer "sulphury"
+    t.integer "woody"
+    t.integer "winey"
+    t.integer "cereal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

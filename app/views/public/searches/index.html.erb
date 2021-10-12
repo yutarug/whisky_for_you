@@ -1,0 +1,3 @@
+<% @bottles.each do |bottle|%>
+    <%= link_to bottle.bottle_name,bottle_path(bottle.id)%>
+<% end %>

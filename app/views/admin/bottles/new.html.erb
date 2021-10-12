@@ -5,15 +5,37 @@
     <%= collection_select(:select_area,:id,@areas,:id,:name)%>
     <p>ボトル名</p>
     <%= f.text_field :bottle_name%>
+    <p>ボトル名(日本語)</p>
+    <%= f.text_field :japanese_bottle_name%>
     <p>度数</p>
     <%= f.text_field :alcohol_content%>
     <p>年数</p>
     <%= f.text_field :age%>
+    <p>価格帯</p>
+    <%= f.select :price_level, {'安め': 0, '普通': 1, 'お高め': 2}, { include_blank: '選択してください'}%>
     <p>バージョン</p>
     <%= f.text_field :feature%>
-    #味後で確認
     <p>一言</p>
     <%= f.text_area :introduction%>
+
+    #味後で確認
+    <h4>味</h4>
+    <p>ピーティ</p>
+    <%= f.number_field :peaty,placeholder:"1~10までで選択してください"%>
+    <p>フルーティー</p>
+    <%= f.number_field :fruity,placeholder:"1~10までで選択してください"%>
+    <p>フローラル</p>
+    <%= f.number_field :floral,placeholder:"1~10までで選択してください"%>
+    <p>フェインティ</p>
+    <%= f.number_field :feinty,placeholder:"1~10までで選択してください"%>
+    <p>サルファリィ</p>
+    <%= f.number_field :sulphury,placeholder:"1~10までで選択してください"%>
+    <p>ウッディー</p>
+    <%= f.number_field :woody,placeholder:"1~10までで選択してください"%>
+    <p>ワイニー</p>
+    <%= f.number_field :winey,placeholder:"1~10までで選択してください"%>
+    <p>シリアル</p>
+    <%= f.number_field :cereal,placeholder:"1~10までで選択してください"%>
     <p>タグを追加</p>
     <%= f.text_field :tag_names,placeholder:",で区切ってください"  %>
     <%= f.submit %>

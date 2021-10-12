@@ -5,9 +5,10 @@ class Bottle < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :tagmaps, dependent: :destroy, foreign_key: 'bottle_id'
     has_many :tags, through: :tagmaps
+    has_one :taste
     attachment :image
-    enum classification:["シングルモルト":0, "シングルグレーン":1]
-    
+    # enum classification:["シングルモルト":0, "シングルグレーン":1]
+    enum status:{imexpensive: 0,normal_price:1,expensive:2}
     def tags_save(tag_list)
         if self.tags!=nil
             bottle_tags_records = Tagmap.where(bottle_id: self.id)
@@ -19,5 +20,7 @@ class Bottle < ApplicationRecord
             self.tags<<inspected_tag
         end
     end
-    
+    def self.search(word)
+        Bottle.where("japanese_bottle_name LIKE?","%#{word}%")
+    end
 end

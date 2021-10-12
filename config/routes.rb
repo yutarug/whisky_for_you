@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :bottles, only: [:index, :show]
     resources :images, only: [:create]
     resources :diagnoses, only:  [:create]
-    resources :searches, only: [:create]
+    resources :searches, only: [:index]
     resources :comments, only: [:create]
     get "/diagnosis/result" => "diagnoses#result"
     get "/diagnosis" => "diagnoses#diagnosis"

@@ -1,5 +1,5 @@
 class Public::ImagesController < ApplicationController
-    
+    require "google/cloud/vision"
     def image
         
     end
@@ -11,9 +11,39 @@ class Public::ImagesController < ApplicationController
         File.open(output_path, 'w+b') do |fp|
     	    fp.write  uploaded_file.read
         end
-        require "google/cloud/vision"
 
-        image_annotator = Google::Cloud::Vision::ImageAnnotator.new
+
+        # api_key = "crafty-centaur-327921-7d5004602e5b.json" 
+        # api_url = URI("https://vision.googleapis.com/v1/images:annotate?key=#{api_key}")
+        # body=   {
+        #             "requests": [
+        #                 {
+        #                 "image": {
+        #                     "source": {
+        #                     "imageUri": "Rails.root.join('tmp/images', uploaded_file.original_filename)"
+        #                     }
+        #                 },
+        #                 "features": [
+        #                     {
+        #                     "type": "TEXT_DETECTION"
+        #                     }
+        #                 ]
+        #                 }
+        #             ]
+        #         }.to_json
+
+        # headers = { "Content-Type" => "application/json" }
+
+        # response = Net::HTTP.post(api_url, body, headers)
+        # byebug
+
+
+
+
+
+        # require "google/cloud/vision"
+
+        # image_annotator = Google::Cloud::Vision::ImageAnnotator.new
 
         #google vision apiを用いてjson形式で投稿された画像のデータを取得。
 

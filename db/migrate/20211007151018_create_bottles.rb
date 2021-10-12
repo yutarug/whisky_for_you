@@ -7,6 +7,8 @@ class CreateBottles < ActiveRecord::Migration[5.2]
       t.string :feature
       t.string :image_id
       t.text :introduction
+      t.string :japanese_bottle_name
+      t.integer :price_level,default: 0, null: false, limit: 2
       t.timestamps
     end
   end

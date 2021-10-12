@@ -15,6 +15,11 @@ class Admin::BottlesController < ApplicationController
         @new_bottle=Bottle.new(bottle_params)
         @new_bottle.area_id=params[:select_area][:id]
         @new_bottle.save
+
+        @new_taste=Taste.new(taste_params)
+        @new_taste.bottle_id=@new_bottle.id
+        @new_taste.save
+
         tag_list= params[:bottle][:tag_names].split(",")
         @new_bottle.tags_save(tag_list)
         redirect_to admin_bottles_path
@@ -31,7 +36,10 @@ class Admin::BottlesController < ApplicationController
 
     private
     def bottle_params
-        params.require(:bottle).permit(:bottle_name,:address, :alcohol_content, :age,:feature,:introduction)
+        params.require(:bottle).permit(:bottle_name,:japanese_bottle_name, :alcohol_content, :age,:feature,:introduction,:price_level)
     end
 
+    def taste_params
+        params.require(:bottle).permit(:peaty,:fruity, :floral, :feinty, :sulphury, :woody, :winey, :cereal)
+    end
 end

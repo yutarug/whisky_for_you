@@ -1,1 +1,56 @@
+<h1>診断</h1>
+<%= form_with url: diagnosis_result_path,method: :get,local: true do |f| %>
+    <%= f.select :price_level, {'安め': 0, '普通': 1, 'お高め': 2}, { include_blank: '選択してください'}%>
+    <br>
+    <p>選択しない</p>
+    <%= radio_button_tag("peaty",0)%>
+    <p>弱め</p>
+    <%= radio_button_tag("peaty",1)%>
+    <p>強め</p>
+    <%= radio_button_tag("peaty",2)%>
+    <br>
 
+    <%= radio_button_tag("fruity",0)%>
+    <%= radio_button_tag("fruity",1)%>
+    <%= radio_button_tag("fruity",2)%>
+    
+    <br>
+
+    <%= radio_button_tag("floral",0)%>
+    <%= radio_button_tag("floral",1)%>
+    <%= radio_button_tag("floral",2)%>
+ 
+    <br>
+
+    <%= radio_button_tag("feinty",0)%>
+    <%= radio_button_tag("feinty",1)%>
+    <%= radio_button_tag("feinty",2)%>
+
+    <br>
+
+    <%= radio_button_tag("sulphury",0)%>
+    <%= radio_button_tag("sulphury",1)%>
+    <%= radio_button_tag("sulphury",2)%>
+  
+    <br>
+
+    <%= radio_button_tag("woody",0)%>
+    <%= radio_button_tag("woody",1)%>
+    <%= radio_button_tag("woody",2)%>
+
+    <br>
+
+    <%= radio_button_tag("winey",0)%>
+    <%= radio_button_tag("winey",1)%>
+    <%= radio_button_tag("winey",2)%>
+
+    <br>
+
+    <%= radio_button_tag("cereal",0)%>
+    <%= radio_button_tag("cereal",1)%>
+    <%= radio_button_tag("cereal",2)%>
+
+    <br>
+
+    <%= f.submit%>
+  <% end %>
