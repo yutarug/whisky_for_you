@@ -56,7 +56,26 @@ class Public::ImagesController < ApplicationController
 
 
 
+        require "google/cloud/vision" 
 
+        image_path = '/vagrant/whisky_for_you/tmp/images/S__9699343.jpg'
+
+        image_annotator = Google::Cloud::Vision.image_annotator
+
+        response = image_annotator.text_detection(
+        image:       image_path,
+        max_results: 1 # optional, defaults to 10
+        )
+
+        response.responses.each do |res|
+        res.text_annotations.each do |text|
+            puts text.description
+            text.bounding_poly.vertices.each do | vertex |
+                byebug
+            puts "  x: #{vertex.x}, y: #{vertex.y}" 
+            end
+        end
+end
 
         #最後に写真を削除
         redirect_to image_path
