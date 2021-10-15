@@ -20,17 +20,28 @@ class Public::ImagesController < ApplicationController
         max_results: 1 # optional, defaults to 10
         )
 
-        response.responses.each do |res|
-            res.text_annotations.each do |text|
-                puts text.description
-                text.bounding_poly.vertices.each do | vertex |
-                    byebug
-                puts "  x: #{vertex.x}, y: #{vertex.y}" 
-                end
-            end
-        end
+        @bottles=Bottle.all
+        @image_bottles=[]
 
+        response.responses.each do |res|
+            # res.text_annotations.each do |text| ループ処理しない
+
+                # puts text.description
+                # byebug
+                # text.bounding_poly.vertices.each do | vertex |
+                # puts "  x: #{vertex.x}, y: #{vertex.y}" 
+                # end
+                @bottles.each do |bottle|
+                    # if text.description.include?("#{bottle.bottle_name}")
+                    if res.text_annotations[0].description.include?("#{bottle.bottle_name}")
+                        @image_bottles.push(bottle)
+                    end
+                end
+            # end
+        end
         #最後に写真を削除
-        redirect_to image_path
+        File.delete(output_path)
+        byebug
+        puts @image_bottles
     end
 end
