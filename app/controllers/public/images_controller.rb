@@ -11,7 +11,7 @@ class Public::ImagesController < ApplicationController
         File.open(output_path, 'w+b') do |fp|
     	    fp.write  uploaded_file.read
         end
-
+        #google-cloud-visionにリクエストを送って、そのレスポンスをresponseに格納
         require "google/cloud/vision"
         image_path = "#{output_path}"
         image_annotator = Google::Cloud::Vision.image_annotator
@@ -23,7 +23,8 @@ class Public::ImagesController < ApplicationController
         @bottles=Bottle.all
         @image_bottles=[]
 
-        response.responses.each do |res|
+        #response.responses.each do |res|
+        res=response.responses[0]
             # res.text_annotations.each do |text| ループ処理しない
 
                 # puts text.description
@@ -38,10 +39,10 @@ class Public::ImagesController < ApplicationController
                     end
                 end
             # end
-        end
+        # end
         #最後に写真を削除
         File.delete(output_path)
-        byebug
         puts @image_bottles
+        byebug
     end
 end
