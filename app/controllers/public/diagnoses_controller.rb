@@ -9,16 +9,9 @@ class Public::DiagnosesController < ApplicationController
         #SQLなら・・・
         #select bottles.* form bottles left inner join tastes on tastes.bottle_id = bottles.id where tastes.peatry >= 7 and tastes.fuitty >= 7;
         # Bottle.joins(:tatste).where("taste.peaty >= ?", 7).where("taste.fruity >= ?", 7)
-        @bottles = Bottle.joins(:taste).where(price_level:params[:price_level])
-            # if params[:peaty].to_i > 0
-            #     case params[:peaty].to_i
-            #     when 1
-            #       @bottles = @bottles.where("taste.peaty <= ?", 3)
-            #     when 2 
-            #       @bottles = @bottles.where("taste.peaty >= ?", 7) 
-            #     end 
-            # end
 
+        #一旦価格別に分けてボトルを取得
+        @bottles = Bottle.joins(:taste).where(price_level:params[:price_level])
         %i(peaty fruity floral feinty sulphury woody winey cereal).each do |key|
             @bottles = set_taste_condition(@bottles, key, params[key])
         end 
@@ -38,6 +31,7 @@ class Public::DiagnosesController < ApplicationController
         @bottles.each do |bottle|
             logger.info "bottle.bottle_name=#{bottle.bottle_name}"
           end
+          
     end
     private
     def set_taste_condition(bottles, key, value)

@@ -7,7 +7,7 @@ class Public::ImagesController < ApplicationController
     def create
         #tmp/imagesフォルダに投稿された写真を一時保管
         uploaded_file = params[:fileupload][:file]
-        output_path = Rails.root.join('tmp/images', uploaded_file.original_filename)
+        output_path = Rails.root.join('tmp/images', uploaded_file.original_filename)#uploaded_file.original_filename
         File.open(output_path, 'w+b') do |fp|
     	    fp.write  uploaded_file.read
         end
@@ -19,30 +19,20 @@ class Public::ImagesController < ApplicationController
         image:       image_path,
         max_results: 1 # optional, defaults to 10
         )
-
+        
+        #全てのボトルを@bottlesに入れる
         @bottles=Bottle.all
+        #条件に合うボトルを入れるための空の配列
         @image_bottles=[]
-
-        #response.responses.each do |res|
+        #写真の中の全てのテキストの中に、各々のボトルの名前が入っているかを確認→→→入っていたら@image_bottlesに入れる
         res=response.responses[0]
-            # res.text_annotations.each do |text| ループ処理しない
-
-                # puts text.description
-                # byebug
-                # text.bounding_poly.vertices.each do | vertex |
-                # puts "  x: #{vertex.x}, y: #{vertex.y}" 
-                # end
                 @bottles.each do |bottle|
-                    # if text.description.include?("#{bottle.bottle_name}")
                     if res.text_annotations[0].description.include?("#{bottle.bottle_name}")
                         @image_bottles.push(bottle)
                     end
                 end
-            # end
-        # end
-        #最後に写真を削除
+        #一時保管した写真を削除
         File.delete(output_path)
-        puts @image_bottles
-        byebug
+        render :index
     end
 end

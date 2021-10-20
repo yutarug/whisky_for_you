@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+/*================
+font
+==========================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*==================-
+common
+============================*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.diagnosis{
+  font-size: 100px;
+  line-height: 1.5;
+  font-size: 0.16rem;
+  z-index: 1;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.5px;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: image-url('0TONmzO04RPTOM51633536234_1633536244.png');
+}
+
+.a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .a:hover {
+    transition: .3s;
+    opacity: .8;
+  }
+  
+  .inner {
+    width: 1000px;
+    margin: auto;
+    max-width: 90%;
+  }
+
+  .diagnosis {
+    text-align: center;
+    padding: 80px 0;
+  }
+  .ttl {
+    font-size: 40px;
+  }
+  
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 30px 0;
+  }
+
+  .boxs {
+    width: 33%;
+    margin: 20px 0;
+    font-size: 20px;
+    position: relative;
+  }
+  .boxs::after {
+    content: "";
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+  }
+
+  .boxs:first-child::after {
+}
+
+
+.ttls {
+  font-size: 30px;
+}
+
+.question {
+  font-size: 30px;
+  padding: 30px 0;
+}
+
+.btn {
+    font-size: 22px;
+    border: 2px solid #fff;
+    width: 260px;
+    margin: 80px auto 20px;
+    padding: 25px 0;
+    max-width: 100%;
+  }
+
+  /*====================
+スマホ版
+==============================*/
+@media screen and (max-width: 767px) {
+
+    .diagnosis {
+      padding: 60px 0;
+    }
+  
+  }
+  
+  .ttl {
+    font-size: 20px;
+  }
+
+
+  .ttls {
+    font-size: 20px;
+  }
+
+  .wrap {
+    padding: 10px 0;
+  }
+
+  .boxs {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    margin: 10px 30px;
+  }
+
+  .btn {
+    margin: 30px auto;
+  }

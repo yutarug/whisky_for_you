@@ -1,6 +1,34 @@
-<p>ラベル写真からウイスキーを検索します。</p>
-#フォームを作って、モデルに無関係な写真を送る。
-<%= form_with url: images_path,multipart: true,local: true do %>
-    <%= file_field :fileupload, :file %>
-    <%= submit_tag "Send file" %>
-<% end %>
+<%= stylesheet_link_tag 'public/images/image', :media => "all" %>
+<%= stylesheet_link_tag 'public/images/reset', :media => "all" %>
+<div class="contents-image">
+    <section class="user">
+
+        <div class="inner">
+
+          <div class="ttl">
+            <p>ラベル写真からウイスキーを
+              <br class="is_pc">
+              検索します。</p>
+          </div> <!--ttl-->
+          <%= form_with url: images_path,multipart: true,local: true do %>
+
+          <div class="space">
+            <p><%= file_field :fileupload, :file %></p>
+          </div> <!--space-->
+
+          <div class="btn">
+            <div class="a">xxx</div>
+          </div> <!--btn-->
+
+          <div class="btn">
+            <div class="a"><%= submit_tag "検索する" %></div>
+          </div> <!--btn-->
+
+          <div class="btns">
+            <div class="a">トップに戻る</div>
+          </div> <!--btns-->
+          <% end %>
+        </div> <!--inner-->
+
+      </section>
+</div>

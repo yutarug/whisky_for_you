@@ -1,56 +1,185 @@
-<h1>診断</h1>
-<%= form_with url: diagnosis_result_path,method: :get,local: true do |f| %>
-    <%= f.select :price_level, {'安め': 0, '普通': 1, 'お高め': 2}, { include_blank: '選択してください'}%>
-    <br>
-    <p>選択しない</p>
-    <%= radio_button_tag("peaty",0)%>
-    <p>弱め</p>
-    <%= radio_button_tag("peaty",1)%>
-    <p>強め</p>
-    <%= radio_button_tag("peaty",2)%>
-    <br>
+<%= stylesheet_link_tag 'public/diagnoses/diagnosis', :media => "all" %>
+<%= stylesheet_link_tag 'public/diagnoses/reset', :media => "all" %>
+<div class="contents-diagnosis">
+    <section class="diagnosis">
+    <%= form_with url: diagnosis_result_path,method: :get,local: true do |f| %>
+        <div class="inner">
+        <div class="ttl">
+            <p>質問に答えてあなたにぴったりの
+            <br>
+            ウイスキーを探しましょう。</p>
+        </div> <!--ttl-->
+        <div class="question">
+            <div class="ttls">
+            <p>価格帯はどのくらいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
 
-    <%= radio_button_tag("fruity",0)%>
-    <%= radio_button_tag("fruity",1)%>
-    <%= radio_button_tag("fruity",2)%>
-    
-    <br>
+        <div class="wrap">
+            <div class="boxs">
+            <p>抑えめ(〜1000円)</p>
+            <%= radio_button_tag("price_level",0)%>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>奮発(〜3000円)</p>
+            <%= radio_button_tag("price_level",1)%>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>大奮発(3000円〜)</p>
+            <%= radio_button_tag("price_level",2)%>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
 
-    <%= radio_button_tag("floral",0)%>
-    <%= radio_button_tag("floral",1)%>
-    <%= radio_button_tag("floral",2)%>
- 
-    <br>
+        <div class="question">
+            <div class="ttls">
+            <p>Q1. ピーティーさはどのぐらいがいいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
 
-    <%= radio_button_tag("feinty",0)%>
-    <%= radio_button_tag("feinty",1)%>
-    <%= radio_button_tag("feinty",2)%>
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("peaty",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("peaty",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("peaty",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
 
-    <br>
+        <div class="question">
+            <div class="ttls">
+            <p>Q2. フルーティーさはどのぐらいがいいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
 
-    <%= radio_button_tag("sulphury",0)%>
-    <%= radio_button_tag("sulphury",1)%>
-    <%= radio_button_tag("sulphury",2)%>
-  
-    <br>
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("fruity",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("fruity",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("fruity",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
 
-    <%= radio_button_tag("woody",0)%>
-    <%= radio_button_tag("woody",1)%>
-    <%= radio_button_tag("woody",2)%>
+        <div class="question">
+            <div class="ttls">
+            <p>Q3. フローラルさはどのぐらいがいいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
 
-    <br>
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("floral",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("floral",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("floral",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
 
-    <%= radio_button_tag("winey",0)%>
-    <%= radio_button_tag("winey",1)%>
-    <%= radio_button_tag("winey",2)%>
+        <div class="question">
+            <div class="ttls">
+            <p>Q4. フェインティさはどのぐらいがいいですか？？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
 
-    <br>
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("feinty",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("feinty",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("feinty",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
 
-    <%= radio_button_tag("cereal",0)%>
-    <%= radio_button_tag("cereal",1)%>
-    <%= radio_button_tag("cereal",2)%>
+        <div class="question">
+            <div class="ttls">
+            <p>Q5. サルファティさはどのぐらいがいいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
 
-    <br>
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("sulphury",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("sulphury",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("sulphury",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
 
-    <%= f.submit%>
-  <% end %>
+        <div class="question">
+            <div class="ttls">
+            <p>Q6. ウッディーさはどのぐらいがいいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
+
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("woody",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("woody",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("woody",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
+
+        <div class="question">
+            <div class="ttls">
+            <p>Q7. ワイニーさはどのぐらいがいいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
+
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("winey",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("winey",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("winey",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
+
+        <div class="question">
+            <div class="ttls">
+            <p>Q8. シリアルさはどのぐらいがいいですか？</p>
+            </div> <!--ttls-->
+        </div> <!--question-->
+
+        <div class="wrap">
+            <div class="boxs">
+            <p>こだわらない <%= radio_button_tag("cereal",0)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>弱め <%= radio_button_tag("cereal",1)%></p>
+            </div> <!--boxs-->
+            <div class="boxs">
+            <p>強め <%= radio_button_tag("cereal",2)%></p>
+            </div> <!--boxs-->
+        </div> <!--wrap-->
+
+        <div class="btn">
+        <%= f.submit "診断する", class:"p"%>
+        </div> <!--btn-->
+
+        </div> <!--inner-->
+        
+        <% end %>
+    </section>
+  </div>

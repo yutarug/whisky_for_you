@@ -1,11 +1,75 @@
-<p>検索</p>
-<p>ボトル名検索(日本語)</p>
-<%= form_with url: searches_path, method: :get,local:true do |f| %>
-    <%= f.text_field :japanese_bottle_name %>
-    <%= f.submit %>
-<% end %>
-<h2>タグ検索</h2>
-<% @search_tag.each do |search_tag|%>
+<%= stylesheet_link_tag 'public/searches/search', :media => "all" %>
+<%= stylesheet_link_tag 'public/searches/reset', :media => "all" %>
+<div class="contents-search">
+    <section class="search">
 
-    <%= link_to search_tag.tag_name,searches_path(tag_id: "#{search_tag.id}")%>
-<% end %>
+        <div class="inner">
+
+          <div class="ttl">
+            <p>検索</p>
+          </div> <!--ttl-->
+
+          <div class="ttls">
+            <p>ボトル検索(日本語)</p>
+          </div> <!--ttls-->
+
+          <div class="wrap">
+          <%= form_with url: searches_path, method: :get,local:true do |f| %>
+            <div class="box">
+            <%= f.text_field :japanese_bottle_name,:class=>"tmp-field" %>
+            </div>
+            <div class="box">
+              <div class="a"><%= f.submit "検索する" %></div>
+            </div> <!--box-->
+          <% end %>
+          </div> <!--wrap-->
+
+          <div class="ttlm">
+            <p>タグ検索</p>
+          </div> <!--ttls-->
+
+          <div class="wraps">
+            <div class="boxs">
+              <figure>
+
+              </figure>
+            </div> <!--box-->
+            <div class="boxs">
+              <figure>
+
+              </figure>
+            </div> <!--box-->
+            <div class="boxs">
+              <figure>
+
+              </figure>
+            </div> <!--box-->
+            <div class="boxs">
+              <figure>
+
+              </figure>
+            </div> <!--box-->
+            <div class="boxs">
+              <figure>
+
+              </figure>
+            </div> <!--box-->
+            <div class="boxs">
+              <figure>
+
+              </figure>
+            </div> <!--box-->
+          </div> <!--wrap-->
+
+          <div class="btn">
+            <div class="a">検索する</div>
+          </div> <!--btn-->
+
+          <div class="btn">
+            <div class="a">トップに戻る</div>
+          </div> <!--btn-->
+
+        </div> <!--inner-->
+
+    </section>
+</div>

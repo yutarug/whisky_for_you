@@ -36,7 +36,7 @@ class Admin::BottlesController < ApplicationController
 
     private
     def bottle_params
-        params.require(:bottle).permit(:bottle_name,:japanese_bottle_name, :alcohol_content, :age,:feature,:introduction,:price_level)
+        params.require(:bottle).permit(:bottle_name,:japanese_bottle_name,:image, :alcohol_content, :age,:feature,:introduction,:price_level)
     end
 
     def taste_params

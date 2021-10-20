@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'public/bottles/bottles', :media => "all" %>
+<<%= stylesheet_link_tag 'public/bottles/bottles', :media => "all" %>
 <%= stylesheet_link_tag 'public/bottles/bottles-reset', :media => "all" %>
 <div class="contents-bottles">
 	<section class="bottles_list">
@@ -10,12 +10,12 @@
 	      </div> <!--ttl-->
 
 	      <div class="heading">
-	        <p> <span><%= @bottles.size%></span> 件ヒットしました！</p>
+	        <p> <span><%= @image_bottles.size%></span> 件ヒットしました！</p>
 	      </div> <!--heading-->
 
         
         <div class="wrap">
-          <% @bottles.each do |bottle| %>
+          <% @image_bottles.each do |bottle| %>
             <div class="box">
               <figure>
               <%= attachment_image_tag bottle, :image%>
