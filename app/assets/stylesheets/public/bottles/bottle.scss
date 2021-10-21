@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+/*================
+font
+==========================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*==================-
+common
+============================*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 100px;
+}
+
+body {
+  line-height: 1.5;
+  font-size: 0.16rem;
+  z-index: 1;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.5px;
+  color: #fff;
+  background-color:black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.a:hover {
+  transition: .3s;
+  opacity: .8;
+}
+
+.inner {
+  width: 1000px;
+  margin: auto;
+  max-width: 90%;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1279px) {
+  .contents-bottle {
+    font-size: 75px;
+    font-size: calc((0.16rem * 100/50) * 0.9);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .contents-bottle {
+    font-size: 50px;
+    font-size: calc((0.16rem * 100/50) * 0.9);
+  }
+  .is_sp {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .is_pc {
+    display: none;
+  }
+}
+
+.diagnosis_bottles {
+  padding: 60px 0;
+}
+.diagnosis_bottles .ttl {
+  font-size: 30px;
+}
+
+.top {
+  background: #fff;
+  text-align: center;
+  width: 800px;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.top img {
+  width: 80%;
+}
+
+.box ul {
+  line-height: 62px;
+}
+.box ul li {
+  font-size: 25px;
+  position: relative;
+}
+
+.box ul li::after {
+  content: "";
+  
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 30px;
+  height: 1px;
+}
+
+.wraps {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.circle {
+  width: 13%;
+  padding: 10px;
+}
+
+.circle img {
+  width: 100%;
+}
+
+
+.btn {
+  font-size: 22px;
+  border: 2px solid #fff;
+  width: 400px;
+  margin: 20px auto 20px;
+  padding: 25px 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+.box {
+  width: 26%;
+}
+
+
+.wrap .box ul:first-child {
+  line-height: 72px;
+}
+
+.wrap .box:nth-child(2) {
+  width: 40%;
+}
+
+.sen {
+  position: relative;
+  text-align: center;
+}
+.sen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.space {
+  color: #333;
+  background: #C4C4C4;
+  width: 544px;
+  margin: 30px auto;
+  text-align: center;
+  font-size: 32px;
+  padding: 80px 0;
+  max-width: 100%;
+}
+/*====================
+スマホ版
+==============================*/
+@media screen and (max-width: 767px) {
+
+  .wrap {
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+
+  .wrap .box:nth-child(2) {
+    order: 2;
+    width: 100%;
+  }
+
+  .box {
+    width: 48%;
+  }
+  .space {
+    background: none;
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #fff;
+  }
+  .ttl {
+    font-size: 32px;
+  }
+  .border_box p {
+    width: 240px;
+    font-size: 20px;
+    padding: 10px 0;
+  }
+
+  .btn {
+    font-size: 20px;
+    width: 250px;
+    padding: 10px 0;
+    margin: 30px auto;
+  }
+
+  .circle {
+    width: 29%;
+  }
+
+}
+

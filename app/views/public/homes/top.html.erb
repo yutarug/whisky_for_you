@@ -1,1 +1,55 @@
-<p>あああ</p>
+<%= stylesheet_link_tag 'public/homes/top', :media => "all" %>
+<%= stylesheet_link_tag 'public/homes/reset', :media => "all" %>
+<div class="contents-top">
+	<section class="user">
+
+	    <div class="inner">
+	      <div class="ttl">
+	        <p>今のあなたにぴったりな
+	          <br class="is_pc">
+	          ウイスキーを探しましょう。</p>
+	      </div> <!--ttl-->
+
+	      <div class="wrapper">
+
+	        <div class="wrap">
+	          <div class="box">
+	            <div class="ttls">
+	              <%= link_to("診断",diagnosis_path,{class:"p"})%>
+	            </div> <!--ttls-->
+	          </div> <!--box-->
+	          <div class="box">
+	            <div class="txt">
+	              <p>12の質問に答えるだけであなたにオススメのウイスキーを紹介します。</p>
+	            </div> <!--txt-->
+	          </div> <!--box-->
+	        </div> <!--wrap-->
+	        <div class="wrap">
+	          <div class="box">
+	            <div class="ttls">
+				<%= link_to("画像",image_path,{class:"p"})%>
+	            </div> <!--ttls-->
+	          </div> <!--box-->
+	          <div class="box">
+	            <div class="txt">
+	              <p>
+	                ボトルの写真をもとに、そのウイスキーを紹介します。</p>
+	            </div> <!--txt-->
+	          </div> <!--box-->
+	        </div> <!--wrap-->
+	        <div class="wrap">
+	          <div class="box">
+	            <div class="ttls">
+				<%= link_to("検索",search_path,{class:"p"})%>
+	            </div> <!--ttls-->
+	          </div> <!--box-->
+	          <div class="box">
+	            <div class="txt">
+	              <p>複数のキーワードから、それに合うウイスキーを紹介します。</p>
+	            </div> <!--txt-->
+	          </div> <!--box-->
+	        </div> <!--wrap-->
+	      </div> <!--wrapper-->
+	    </div> <!--inner-->
+	 </section>
+</div>

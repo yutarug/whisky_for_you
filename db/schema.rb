@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_173225) do
+ActiveRecord::Schema.define(version: 2021_10_11_083811) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,14 +26,17 @@ ActiveRecord::Schema.define(version: 2021_10_07_173225) do
 
   create_table "bottles", force: :cascade do |t|
     t.integer "area_id", null: false
-    t.string "name", null: false
+    t.string "bottle_name", null: false
     t.integer "age"
     t.string "feature"
     t.string "image_id"
     t.text "introduction"
+    t.string "japanese_bottle_name"
+    t.integer "price_level", limit: 2, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "classification"
+    t.integer "alcohol_content"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -44,14 +47,28 @@ ActiveRecord::Schema.define(version: 2021_10_07_173225) do
   end
 
   create_table "tagmaps", force: :cascade do |t|
-    t.string "bottle_id", null: false
-    t.string "tag_id", null: false
+    t.integer "bottle_id", null: false
+    t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "tag_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tastes", force: :cascade do |t|
+    t.integer "bottle_id"
+    t.integer "peaty"
+    t.integer "fruity"
+    t.integer "floral"
+    t.integer "feinty"
+    t.integer "sulphury"
+    t.integer "woody"
+    t.integer "winey"
+    t.integer "cereal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

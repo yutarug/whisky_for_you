@@ -1,1 +1,88 @@
-<p>パブリックボトルショウ</p>
+<%= stylesheet_link_tag 'public/bottles/bottle', :media => "all" %>
+<%= stylesheet_link_tag 'public/bottles/bottle-reset', :media => "all" %>
+<div class="contents-bottle">
+  <section class="diagnosis_bottles">
+
+      <div class="inner">
+
+        <div class="top">
+          <figure>
+          </figure>
+        </div> <!--top-->
+        <div class="wraps">
+          <div class="circle">
+            <figure>
+            <%= attachment_image_tag @bottle, :image%>
+            </figure>
+            <h3><%= @bottle.japanese_bottle_name%></h3>
+          </div> <!--circle-->
+        </div> <!--wraps-->
+        <div class="wrap">
+          <div class="box">
+            <ul>
+              <li></li>
+              <li>度数</li>
+              <li><%=@bottle.alcohol_content%></li>
+              <li>年数</li>
+              <li><%= @bottle.age%></li>
+              <li>価格帯</li>
+              <li><%= @bottle.price_level%></li>
+              <li>バージョン</li>
+              <li><%= @bottle.feature%></li>
+              <li>一言</li>
+              <li><%=@bottle.introduction%></li>
+            </ul>
+
+          </div> <!--box-->
+          <div class="box">
+        <div class="btn">
+          <div class="a">公開コメントを入力</div>
+        </div> <!--btn-->
+
+        <p class="sen">----------------------------------
+          <Br>
+          ------------------------!!!
+        </p>
+
+        <div class="btn">
+          <div class="a">もう一度診断する</div>
+        </div> <!--btn-->
+
+        <div class="btn">
+          <div class="a"><div class="a"><%= link_to "トップに戻る",root_path%></div></div>
+        </div> <!--btn-->
+
+          </div> <!--box-->
+          <div class="box">
+            <div class="ttl">
+              <p>タグ</p>
+            </div> <!--ttl-->
+            <% @bottle.tags.each do |tag| %>
+              <%=tag.tag_name%>
+            <%end%>
+            <div class="space">
+            <canvas id="myChart"></canvas>
+            <script>
+            var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
+              type: 'radar',
+              data: {
+                labels: ["peaty", "fruity", "floral", "feinty", "sulphury","woody","winey","cereal"],
+                datasets: [{
+                  label: 'このウイスキーの味覚ブラフ',
+                  backgroundColor: "rgba(0,0,80,0.4)",
+                  borderColor: "rgba(0,0,80,1)",
+                  data: [<%=@bottle.taste.peaty*10%>, <%= @bottle.taste.fruity*10%>, <%= @bottle.taste.floral*10%>, <%= @bottle.taste.feinty*10%>, <%= @bottle.taste.sulphury*10%>, <%= @bottle.taste.woody*10%>,<%= @bottle.taste.winey*10%>,<%= @bottle.taste.cereal*10%>]
+                }
+              ]
+              }
+            });
+            </script>
+            </div> <!--space-->
+          </div> <!--box-->
+
+        </div> <!--wrap-->
+
+      </div> <!--inner-->
+  </section>
+</div>

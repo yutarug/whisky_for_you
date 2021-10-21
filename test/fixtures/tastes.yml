@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bottle_id: 1
+  peaty: 1
+  fruity: 1
+  floral: 1
+  feinty: 1
+  sulphury: 1
+  woody: 1
+  winey: 1
+  cereal: 1
+
+two:
+  bottle_id: 1
+  peaty: 1
+  fruity: 1
+  floral: 1
+  feinty: 1
+  sulphury: 1
+  woody: 1
+  winey: 1
+  cereal: 1
