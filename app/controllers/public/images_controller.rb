@@ -1,7 +1,6 @@
 class Public::ImagesController < ApplicationController
     require "google/cloud/vision"
     def image
-        
     end
 
     def create
@@ -19,7 +18,7 @@ class Public::ImagesController < ApplicationController
         image:       image_path,
         max_results: 1 # optional, defaults to 10
         )
-        
+
         #全てのボトルを@bottlesに入れる
         @bottles=Bottle.all
         #条件に合うボトルを入れるための空の配列

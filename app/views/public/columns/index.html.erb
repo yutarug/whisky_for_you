@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'public/bottles/bottles', :media => "all" %>
+<<%= stylesheet_link_tag 'public/bottles/bottles', :media => "all" %>
 <%= stylesheet_link_tag 'public/bottles/bottles-reset', :media => "all" %>
 <div class="contents-bottles">
 	<section class="bottles_list">
@@ -10,23 +10,23 @@
 	      </div> <!--ttl-->
 
 	      <div class="heading">
-	        <p> <span><%= @bottles.size%></span> 件ヒットしました！</p>
+	        <p> <span><%= @columns.size%></span> 件ヒットしました！</p>
 	      </div> <!--heading-->
 
-        
+
         <div class="wrap">
-          <% @bottles.each do |bottle| %>
+          <% @columns.each do |column| %>
             <div class="box">
               <figure>
-              <%= attachment_image_tag bottle, :image%>
+              <%= attachment_image_tag column, :image%>
               </figure>
               <div class="txt">
-                <p><%= link_to bottle.japanese_bottle_name, bottle_path(bottle.id)%></p>
+                <p><%= link_to column.title, column_path(column.id)%></p>
               </div> <!--txt-->
             </div> <!--box-->
           <% end %>
         </div> <!--wrap-->
-	        
+
 
 	    </div> <!--inner-->
 

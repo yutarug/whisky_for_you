@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'public/columns/column', :media => "all" %>
+<%= stylesheet_link_tag 'public/columns/column-reset', :media => "all" %>
+<div class="contents-column">
+	<div class="image-title-introduction">
+		<div class="column-image">
+			<%= attachment_image_tag @column, :image, :size => '700x400' %>
+		</div>
+		<div class="column-title">
+			<h2><%= @column.title%></h2>
+		</div>
+		<div class="column-introduction">
+			<p><%= @column.introduction%></p>
+		</div>
+		<%= link_to(bottle_path(@column.bottle), class: 'list-content') do %>
+			<%= attachment_image_tag @column.bottle, :image, :size => '200x200' %>
+			<%= @column.bottle.japanese_bottle_name%>
+		<% end %>
+	</div>
+</div>

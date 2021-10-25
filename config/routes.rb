@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   	    passwords:     'admin/passwords',
         registrations: 'admin/registrations'
   }
-  
+
   namespace :admin do
     resources :bottles, only: [:new, :index, :create, :edit, :update, :destroy]
+    resources :columns, only: [:new, :create]
   end
 
   scope module: :public do
     root to: 'homes#top'
     resources :bottles, only: [:index, :show]
+    resources :columns, only: [:index,:show]
     resources :images, only: [:create]
     resources :diagnoses, only:  [:create]
     resources :searches, only: [:index]
@@ -22,6 +24,6 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get "image" => "images#image"
   end
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

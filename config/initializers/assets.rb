@@ -28,4 +28,8 @@ Rails.application.config.assets.precompile += %w(
     public/images/reset.scss
     public/searches/search.scss
     public/searches/reset.scss
+    public/columns/columns.scss
+    public/columns/columns-reset.scss
+    public/columns/column.scss
+    public/columns/column-reset.scss
  )

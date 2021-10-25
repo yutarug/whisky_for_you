@@ -1,0 +1,11 @@
+<%= form_with model:@new_column, url: admin_columns_path  do  |f| %>
+    <p>ボトル名</p>
+    <%= collection_select(:select_bottle,:id,@bottles,:id,:japanese_bottle_name)%>
+    <p>タイトル</p>
+    <%= f.text_field :title%>
+    <p>本文</p>
+    <%= f.text_area :introduction%>
+    <p>記事写真</p>
+    <%= f.attachment_field :image %>
+    <%= f.submit %>
+<%end%>

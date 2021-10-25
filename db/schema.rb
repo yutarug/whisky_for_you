@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_083811) do
+ActiveRecord::Schema.define(version: 2021_10_24_130442) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_083811) do
 
   create_table "bottles", force: :cascade do |t|
     t.integer "area_id", null: false
+    t.integer "column_id"
     t.string "bottle_name", null: false
     t.integer "age"
     t.string "feature"
@@ -36,7 +37,16 @@ ActiveRecord::Schema.define(version: 2021_10_11_083811) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "classification"
+    t.string "distillery_name"
     t.integer "alcohol_content"
+  end
+
+  create_table "columns", force: :cascade do |t|
+    t.string "title"
+    t.text "introduction"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -44,6 +54,15 @@ ActiveRecord::Schema.define(version: 2021_10_11_083811) do
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "bottle_id"
+    t.integer "recommendation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bottle_id"], name: "index_relationships_on_bottle_id"
+    t.index ["recommendation_id"], name: "index_relationships_on_recommendation_id"
   end
 
   create_table "tagmaps", force: :cascade do |t|

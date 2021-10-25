@@ -1,5 +1,7 @@
 <%= stylesheet_link_tag 'public/bottles/bottle', :media => "all" %>
 <%= stylesheet_link_tag 'public/bottles/bottle-reset', :media => "all" %>
+<<%= stylesheet_link_tag 'public/bottles/bottles', :media => "all" %>
+<%= stylesheet_link_tag 'public/bottles/bottles-reset', :media => "all" %>
 <div class="contents-bottle">
   <section class="diagnosis_bottles">
 
@@ -52,6 +54,22 @@
           <div class="a"><div class="a"><%= link_to "トップに戻る",root_path%></div></div>
         </div> <!--btn-->
 
+        <div class="recommendations">
+          <h1>こちらもおすすめです</h1>
+            <div class="wrap">
+            <% @bottles.each do |bottle| %>
+              <div class="box">
+                <figure>
+                <%= attachment_image_tag bottle, :image%>
+                </figure>
+                <div class="txt">
+                  <p><%= link_to bottle.japanese_bottle_name, bottle_path(bottle.id)%></p>
+                </div> <!--txt-->
+              </div> <!--box-->
+            <% end %>
+          </div> <!--wrap-->
+        </div>
+
           </div> <!--box-->
           <div class="box">
             <div class="ttl">
@@ -69,7 +87,7 @@
               data: {
                 labels: ["peaty", "fruity", "floral", "feinty", "sulphury","woody","winey","cereal"],
                 datasets: [{
-                  label: 'このウイスキーの味覚ブラフ',
+                  label: 'このウイスキーの味覚グラフ',
                   backgroundColor: "rgba(0,0,80,0.4)",
                   borderColor: "rgba(0,0,80,1)",
                   data: [<%=@bottle.taste.peaty*10%>, <%= @bottle.taste.fruity*10%>, <%= @bottle.taste.floral*10%>, <%= @bottle.taste.feinty*10%>, <%= @bottle.taste.sulphury*10%>, <%= @bottle.taste.woody*10%>,<%= @bottle.taste.winey*10%>,<%= @bottle.taste.cereal*10%>]
